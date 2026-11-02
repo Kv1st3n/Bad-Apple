@@ -1,50 +1,37 @@
 #include "Window.hh"
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
+#include <cstdio>
 
+Window::Window() {}
 
-Window::Window()
-{
-
-}
 Window::~Window()
 {
-
+    if (window)
+    {
+        SDL_DestroyWindow(window);
+    }
+    SDL_Quit();
 }
 
-void Window::init_window(int width, int height)
+bool Window::initWindow(int width, int height)
 {
-    SDL_Window *window;
-    bool done = false;
+    if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO))
+    {
+        fprintf(stderr, "Error initializing SDL: %s\n", SDL_GetError());
+        return false;
+    }
 
-    SDL_Init(SDL_INIT_VIDEO);
-
-    window = SDL_CreateWindow
-    (
+    window = SDL_CreateWindow(
         "Bad Apple",
         width,
         height,
         SDL_WINDOW_OPENGL
     );
 
-    if (window == NULL)
+    if (window == nullptr)
     {
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Could not create window: %s\n", SDL_GetError());
+        return false;
     }
 
-    while (!done)
-    {
-        SDL_Event event;
-
-        while (SDL_PollEvent(&event))
-        {
-            if (event.type == SDL_EVENT_QUIT)
-            {
-                done = true;
-            }
-        }
-    }
-
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    return true;
 }

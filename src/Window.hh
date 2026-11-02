@@ -1,16 +1,17 @@
 #ifndef WINDOW_HH
 #define WINDOW_HH
 
-class Window
-{
+#include <SDL3/SDL.h>
+
+class Window {
 public:
     Window();
     ~Window();
 
-    void init_window(int width, int height);
+    bool initWindow(int width, int height);
 
 private:
-
+    SDL_Window *window = nullptr;
 };
 
 #endif
