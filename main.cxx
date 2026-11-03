@@ -3,8 +3,8 @@
 
 int main()
 {
-    int width = 620;
-    int height = 480;
+    int width = 1000;
+    int height = 900;
     Player player;
     player.initPlayer(width, height);
 
@@ -21,7 +21,12 @@ int main()
             }
         }
 
-        SDL_Delay(16); 
+        if (!player.window.drawFrame())
+        {
+            running = false;
+        }
+
+        SDL_Delay(30);
     }
 
     return 0;
