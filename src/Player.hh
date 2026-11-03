@@ -11,6 +11,7 @@ public:
     ~Player();
 
     void initPlayer(int width, int height);
+    bool pausePlayer();
 
 private:
     Window window;

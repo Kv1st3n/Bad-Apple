@@ -17,6 +17,7 @@ private:
     MIX_Mixer *mixer = nullptr;
     MIX_Track *track = nullptr;
     MIX_Audio *audio = nullptr;
+    SDL_PropertiesID props = SDL_CreateProperties();
 };
 
 

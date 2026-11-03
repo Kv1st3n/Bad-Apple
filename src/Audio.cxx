@@ -8,7 +8,13 @@ Audio::Audio()
 
 }
 Audio::~Audio()
-{
+{   
+
+    if (props)
+    {
+        SDL_DestroyProperties(props);
+    }
+
     if (track) 
     {
         MIX_DestroyTrack(track);
@@ -56,6 +62,7 @@ void Audio::initAudio()
     }
 
     track = MIX_CreateTrack(mixer);
+    SDL_SetNumberProperty(props, MIX_PROP_PLAY_LOOPS_NUMBER, -1);
 
     bool trackAudio = MIX_SetTrackAudio(track, audio);
     if (!trackAudio)
@@ -64,7 +71,7 @@ void Audio::initAudio()
         return;
     }
 
-    if (!MIX_PlayTrack(track, 0))
+    if (!MIX_PlayTrack(track, props))
     {
         fprintf(stderr, "Error playing track: %s\n", SDL_GetError());
     }
