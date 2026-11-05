@@ -9,7 +9,11 @@ Audio::Audio()
 }
 Audio::~Audio()
 {   
+    clearAudio();  
+}
 
+void Audio::clearAudio()
+{
     if (props)
     {
         SDL_DestroyProperties(props);
@@ -75,5 +79,19 @@ void Audio::initAudio()
     {
         fprintf(stderr, "Error playing track: %s\n", SDL_GetError());
     }
-
 }
+
+void Audio::resetAudio()
+{
+    clearAudio();
+    initAudio();
+}
+
+void Audio::pauseAudio()
+{
+    if (track != nullptr)
+    {
+        MIX_PauseTrack(track);
+    }
+}
+

@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <vector>
+#include <string>
 
 extern "C" {
     #include <libavcodec/avcodec.h>
@@ -14,16 +15,19 @@ class Video
 {
 public:
     Video();
-    ~Video();
+    virtual ~Video();
 
     bool initVideo();
     bool readFrame();
-
     int getWidth() const;
     int getHeight() const;
     const uint8_t *getPixels() const;
 
-private:
+    void close();
+
+protected:
+    bool openInput(const char *path);
+
     AVFormatContext *formatCtx = nullptr;
     AVCodecParameters *codecPar = nullptr;
     const AVCodec *codec = nullptr;
@@ -34,9 +38,6 @@ private:
 
     int videoStreamIndex = -1;
     std::vector<uint8_t> rgbBuffer;
-
-    int asciiWidth = 120;
-    int asciiHeight = 45;
 };
 
 #endif

@@ -19,6 +19,26 @@ int main()
             {
                 running = false;
             }
+
+            if (event.type == SDL_EVENT_KEY_DOWN && !event.key.repeat)
+            {
+                switch (event.key.key)
+                {
+                    case SDLK_ESCAPE: 
+                        running = false;               
+                        break;
+                    case SDLK_1:      
+                        player.window.setMode(false);  
+                        player.audio.resetAudio();
+                        break;
+                    case SDLK_2:      
+                        player.window.setMode(true);   
+                        player.audio.resetAudio();
+                        break;
+                    case SDLK_SPACE:
+                        player.pausePlayer();
+                }
+            }
         }
 
         if (!player.window.drawFrame())

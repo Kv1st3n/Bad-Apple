@@ -1,4 +1,6 @@
 add_library(src_library STATIC
+    AsciiVideo.hh
+    AsciiVideo.cxx
     Audio.hh
     Audio.cxx
     Window.hh

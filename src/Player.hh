@@ -11,12 +11,10 @@ public:
     ~Player();
 
     Window window;
+    Audio audio;
 
     void initPlayer(int width, int height);
-    bool pausePlayer();
-
-private:
-    Audio audio;
+    void pausePlayer();
 };
 
 

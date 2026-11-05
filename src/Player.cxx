@@ -21,3 +21,8 @@ void Player::initPlayer(int width, int height)
     window.initWindow(width, height);
     audio.initAudio();
 }
+
+void Player::pausePlayer()
+{
+    audio.pauseAudio();
+}

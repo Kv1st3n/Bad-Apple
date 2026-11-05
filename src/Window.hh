@@ -3,6 +3,7 @@
 
 #include <SDL3/SDL.h>
 #include "Video.hh"
+#include "AsciiVideo.hh"
 
 class Window {
 public:
@@ -14,6 +15,9 @@ public:
     SDL_Renderer* getRenderer() const;
 
     Video video;
+    AsciiVideo asciiVideo;
+    bool asciiMode = false;
+    void setMode(bool ascii);
 
 private:
     SDL_Window *window = nullptr;
