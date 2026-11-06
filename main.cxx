@@ -5,6 +5,9 @@ int main()
 {
     int width = 1000;
     int height = 900;
+
+    int pValue = 0;
+
     Player player;
     player.initPlayer(width, height);
 
@@ -36,7 +39,8 @@ int main()
                         player.audio.resetAudio();
                         break;
                     case SDLK_SPACE:
-                        player.pausePlayer();
+                        pValue += 1;
+                        player.pausePlayer(pValue);
                 }
             }
         }

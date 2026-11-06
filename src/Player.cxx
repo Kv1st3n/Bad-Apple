@@ -22,7 +22,15 @@ void Player::initPlayer(int width, int height)
     audio.initAudio();
 }
 
-void Player::pausePlayer()
+void Player::pausePlayer(int pValue)
 {
-    audio.pauseAudio();
+
+    if (pValue % 2)
+    {
+        audio.pauseAudio();
+    }
+    else
+    {
+        audio.resumeAudio();
+    }
 }

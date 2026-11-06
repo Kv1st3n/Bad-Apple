@@ -95,3 +95,10 @@ void Audio::pauseAudio()
     }
 }
 
+void Audio::resumeAudio()
+{
+    if (track != nullptr)
+    {
+        MIX_ResumeTrack(track);
+    }
+}

@@ -14,7 +14,7 @@ public:
     Audio audio;
 
     void initPlayer(int width, int height);
-    void pausePlayer();
+    void pausePlayer(int pValue);
 };
 
 
