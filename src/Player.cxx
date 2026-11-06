@@ -24,13 +24,5 @@ void Player::initPlayer(int width, int height)
 
 void Player::pausePlayer(int pValue)
 {
-
-    if (pValue % 2)
-    {
-        audio.pauseAudio();
-    }
-    else
-    {
-        audio.resumeAudio();
-    }
+    (pValue % 2) ? audio.pauseAudio() : audio.resumeAudio();
 }
