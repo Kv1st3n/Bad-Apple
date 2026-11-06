@@ -21,7 +21,7 @@ private:
     int asciiWidth = 120;
     int asciiHeight = 45;
     std::vector<uint8_t> grayBuffer;
-    const std::string ramp = " .:-=+*#%@";
+    const std::string ramp = "@%#*+=-:. ";
 };
 
 #endif

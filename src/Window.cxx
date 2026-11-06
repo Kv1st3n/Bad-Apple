@@ -82,8 +82,14 @@ bool Window::initWindow(int width, int height)
     return texture != nullptr;
 }
 
-bool Window::drawFrame()
-{
+bool Window::drawFrame(int pValue)
+{   
+
+    if (pValue % 2 == 0)
+    {
+        return true;
+    }
+
     if (asciiMode)
     {
         std::string ascii;

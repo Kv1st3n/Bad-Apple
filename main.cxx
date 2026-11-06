@@ -6,7 +6,7 @@ int main()
     int width = 1000;
     int height = 900;
 
-    int pValue = 0;
+    int pValue = 1;
 
     Player player;
     player.initPlayer(width, height);
@@ -45,7 +45,7 @@ int main()
             }
         }
 
-        if (!player.window.drawFrame())
+        if (!player.window.drawFrame(pValue))
         {
             running = false;
         }
