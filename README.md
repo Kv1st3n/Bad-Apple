@@ -37,3 +37,12 @@ cmake --build build
 
 ## General Info
 When you start running, the program will display the regular .mp4 video, but you can switch to ASCII mode using the '2' key, and to change back click on the '1' key. The spacebar will pause the display and clicking 'S' will change the ASCII mode. The change in ASCII mode will either display the background with ASCII character(s) with characters using empty space or vice versa.
+
+## Screenshots
+## Example
+![Breakout](screenshots/mode1.png)
+*ASCII Mode 1*
+
+## Example
+![Breakout](screenshots/mode2.png)
+*ASCII Mode 2*
