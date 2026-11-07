@@ -82,7 +82,7 @@ bool Window::initWindow(int width, int height)
     return texture != nullptr;
 }
 
-bool Window::drawFrame(int pValue)
+bool Window::drawFrame(int pValue, int rampValue)
 {   
 
     if (pValue % 2 == 0)
@@ -93,7 +93,7 @@ bool Window::drawFrame(int pValue)
     if (asciiMode)
     {
         std::string ascii;
-        if (!asciiVideo.readAsciiFrame(ascii))
+        if (!asciiVideo.readAsciiFrame(ascii, rampValue))
         {
             return false;
         }

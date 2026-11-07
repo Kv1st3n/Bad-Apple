@@ -7,6 +7,7 @@ int main()
     int height = 900;
 
     int pValue = 1;
+    int rampValue;
 
     Player player;
     player.initPlayer(width, height);
@@ -38,14 +39,18 @@ int main()
                         player.window.setMode(true);   
                         player.audio.resetAudio();
                         break;
+                    case SDLK_S:
+                        rampValue += 1;
+                        break;
                     case SDLK_SPACE:
                         pValue += 1;
                         player.pausePlayer(pValue);
+                        break;
                 }
             }
         }
 
-        if (!player.window.drawFrame(pValue))
+        if (!player.window.drawFrame(pValue, rampValue))
         {
             running = false;
         }

@@ -11,7 +11,7 @@ public:
     ~Window();
 
     bool initWindow(int width, int height);
-    bool drawFrame(int pValue);
+    bool drawFrame(int pValue, int rampValue);
     SDL_Renderer* getRenderer() const;
 
     Video video;

@@ -26,8 +26,11 @@ bool AsciiVideo::initAscii(const char *path, int width, int height)
     return true;
 }
 
-bool AsciiVideo::readAsciiFrame(std::string &out)
+bool AsciiVideo::readAsciiFrame(std::string &out, int rampVal)
 {
+
+    std::string ramp = (rampVal % 2 == 0) ? ramp1 : ramp2;
+
     const int rampLength = ramp.length();
 
     while (av_read_frame(formatCtx, packet) >= 0)
